@@ -1,0 +1,15 @@
+# Netlify response headers: https://docs.netlify.com/manage/routing/headers/
+#
+# By default Netlify makes browsers re-check every file on every visit.
+# Images and videos rarely change, so let browsers reuse them for a day
+# without asking. Pages, styles, scripts and the Unity build are left on
+# Netlify's default so updates always show up right away.
+#
+# If you replace an image or video but keep the SAME file name, returning
+# visitors may see the old one for up to a day.
+
+/images/*
+  Cache-Control: public, max-age=86400
+
+/videos/*
+  Cache-Control: public, max-age=86400

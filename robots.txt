@@ -1,0 +1,5 @@
+# Tells search engines they can visit every page, and where the page list is
+User-agent: *
+Allow: /
+
+Sitemap: https://cosmicshin.netlify.app/sitemap.xml

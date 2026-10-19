@@ -1,0 +1,301 @@
+.site-header {
+    background-color: #000000;
+    border-bottom: 2px solid var(--accent);
+    box-shadow: 0 2px 10px rgba(var(--accent-rgb), 0.25);
+    position: sticky;
+    top: 0;
+    z-index: 99999;
+    width: 100%;
+}
+
+/* Keeps anchor jumps and keyboard focus clear of the pinned header. */
+html {
+    scroll-padding-top: 96px;
+}
+
+.header-container {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10000;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.site-logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-link {
+    color: var(--text-white);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    border-bottom: 2px solid var(--text-white);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #000000;
+    min-width: 240px;
+    white-space: nowrap;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.8), 0 0 10px rgba(var(--accent-rgb), 0.2);
+    border: 1px solid var(--border-darker);
+    border-top: 2px solid var(--accent);
+    border-radius: 0 0 6px 6px;
+    padding: 10px 0;
+    z-index: 999999;
+    text-align: left;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content,
+.dropdown.open .dropdown-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-content button {
+    background: none;
+    border: 0;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.dropdown-content a,
+.dropdown-content button {
+    color: var(--text-white);
+    padding: 10px 18px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    display: block;
+    transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.dropdown-content a:hover,
+.dropdown-content button:hover {
+    color: var(--accent);
+    background-color: #111111;
+    transform: translateX(6px) scale(1.02);
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.social-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.social-icon img {
+    height: 26px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.8));
+    transition: filter 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.18) translateY(-2px);
+}
+
+.social-icon:hover img {
+    filter: drop-shadow(0 0 6px var(--accent));
+}
+
+.top-banner {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-bottom: 50px;
+    overflow: hidden;
+    height: 450px;
+    z-index: 1;
+    border-bottom: 2px solid var(--accent);
+    box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.35);
+    display: flex;
+    align-items: center;
+}
+
+.top-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    display: block;
+    image-rendering: crisp-edges;
+}
+
+.banner-content {
+    position: absolute;
+    left: 80px;
+    max-width: 500px;
+    text-align: left;
+    color: var(--text-white);
+    z-index: 2;
+}
+
+.system-tag {
+    font-family: var(--font-pixel);
+    font-weight: 400;
+    color: var(--accent);
+    font-size: 19px;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.banner-content h1 {
+    font-size: 38px;
+    color: var(--text-white);
+    margin: 0 0 12px 0;
+    text-align: left;
+    font-weight: 900;
+}
+
+.banner-description {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.banner-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.banner-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-red {
+    background-color: var(--accent-button);
+    color: var(--on-accent);
+}
+
+.btn-red:hover {
+    background-color: var(--accent-hover);
+    box-shadow: 0 0 30px rgba(var(--accent-rgb), 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
+
+.btn-outline:hover {
+    background-color: rgba(var(--accent-rgb), 0.1);
+    box-shadow: 0 0 30px rgba(var(--accent-rgb), 0.4);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 800px) {
+    .top-banner::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    html {
+        scroll-padding-top: 16px;
+    }
+    .site-header {
+        position: relative;
+    }
+    .header-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 24px;
+        padding: 10px 16px;
+    }
+    .header-left {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 24px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 18px;
+    }
+    .nav-link {
+        font-size: 13px;
+    }
+    .dropdown-content {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.type-rest {
+    visibility: hidden;
+}
+
+.type-caret {
+    display: inline-block;
+    width: 0.12em;
+    height: 0.9em;
+    margin-right: -0.12em;
+    vertical-align: -0.08em;
+    background-color: var(--accent);
+    box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.8);
+    animation: caretBlink 0.8s steps(1) infinite;
+}
+
+@keyframes caretBlink {
+    50% { opacity: 0; }
+}

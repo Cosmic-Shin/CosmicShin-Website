@@ -1,0 +1,70 @@
+@media (pointer: fine) {
+    body.custom-cursor,
+    body.custom-cursor * {
+        cursor: none !important;
+    }
+}
+
+#custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    pointer-events: none;
+    z-index: 9999999;
+    display: none;
+}
+
+.cursor-base {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
+}
+
+.cursor-star {
+    position: absolute;
+    top: 30%;
+    left: 18%;
+    width: 35%;
+    height: 35%;
+    object-fit: contain;
+    z-index: 2;
+    animation: spinCursorStar 3s linear infinite;
+}
+
+@keyframes spinCursorStar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.cursor-trail-star {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999998;
+    user-select: none;
+    filter: drop-shadow(0 0 10px rgba(var(--accent-rgb), 0.8));
+    animation: cursorTrailFade 1.25s ease-out forwards;
+}
+
+@keyframes cursorTrailFade {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.2) rotate(180deg);
+    }
+}
+
+video:fullscreen { cursor: var(--fullscreen-cursor, url("../images/cursor/fullscreen-cursor.png") 5 1), auto !important; }
+video:-webkit-full-screen { cursor: var(--fullscreen-cursor, url("../images/cursor/fullscreen-cursor.png") 5 1), auto !important; }

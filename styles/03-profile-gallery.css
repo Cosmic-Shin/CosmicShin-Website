@@ -1,0 +1,443 @@
+.profile-promo-container {
+    max-width: var(--max-width-site);
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+}
+
+.profile-promo-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.profile-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-dark);
+    border-radius: 8px;
+    padding: 28px;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.profile-star-decor {
+    position: absolute;
+    top: -15px;
+    right: -40px;
+    width: 175px;
+    height: auto;
+    pointer-events: none;
+    z-index: 1;
+    transform: rotate(30deg);
+}
+
+@media (max-width: 900px) {
+    .profile-promo-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .profile-star-decor {
+        right: -8px;
+        width: 120px;
+    }
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.profile-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid var(--border-dark);
+    background-color: var(--bg-darker);
+}
+
+.profile-title-group h2 {
+    color: var(--text-white);
+    font-size: 20px;
+    font-weight: 900;
+    margin: 0 0 4px 0;
+    letter-spacing: 0.5px;
+}
+
+.profile-class {
+    font-family: var(--font-pixel);
+    font-weight: 400;
+    color: var(--accent);
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: block;
+}
+
+.profile-bio {
+    color: #aaaaaa;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0 0 24px 0;
+}
+
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.skill-label-group {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--text-white);
+    letter-spacing: 0.5px;
+}
+
+.skill-bar-empty {
+    width: 100%;
+    height: 10px;
+    background-color: var(--border-darker);
+    overflow: hidden;
+}
+
+.skill-bar-fill {
+    height: 100%;
+    background-color: var(--accent);
+    transition: width 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.skill-bar-fill.filling {
+    animation: xpGlow 1.4s ease-out;
+}
+
+@keyframes xpGlow {
+    0%, 70% { box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.9); filter: brightness(1.3); }
+    100% { box-shadow: none; filter: none; }
+}
+
+.promo-card {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    text-align: left;
+}
+
+.promo-media-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-darker);
+    background-color: var(--bg-darker);
+}
+
+.promo-media {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+.promo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+img[data-zoom] {
+    cursor: pointer;
+}
+
+.play-button-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 52px;
+    height: 52px;
+    background-color: var(--accent-button);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--on-accent);
+    box-shadow: 0 0 30px rgba(var(--accent-rgb), 0.4);
+}
+
+.play-button-overlay svg {
+    width: 26px;
+    height: 26px;
+    margin-left: 3px;
+}
+
+.promo-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.promo-title {
+    color: var(--text-white);
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    margin: 6px 0 10px 0;
+}
+
+.promo-description {
+    color: #aaaaaa;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.gallery-container {
+    max-width: var(--max-width-site);
+    margin: 0 auto;
+    padding: 0 20px 60px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.section-title-wrapper {
+    text-align: left;
+    margin-bottom: 20px;
+    width: 1240px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sub-header {
+    font-family: var(--font-pixel);
+    font-weight: 400;
+    color: var(--accent);
+    font-size: 18px;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.main-header {
+    color: var(--text-white);
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.game-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 280px);
+    justify-content: center;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+.game-card {
+    position: relative;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-dark);
+    border-radius: 10px;
+    padding: 16px;
+    text-decoration: none;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-card:hover {
+    border-color: var(--accent);
+    transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateY(-4px);
+    box-shadow: 0 0 30px rgba(var(--accent-rgb), 0.4);
+    cursor: pointer;
+}
+
+.card-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 6px;
+    background-color: var(--bg-darker);
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 14px;
+    flex-grow: 1;
+}
+
+.card-meta {
+    font-family: var(--font-pixel);
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.game-card h3 {
+    color: var(--text-white);
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0 0 8px 0;
+    letter-spacing: 0.5px;
+}
+
+.game-card p {
+    color: #aaaaaa;
+    font-size: 12px;
+    line-height: 1.4;
+    margin: 0 0 20px 0;
+    flex-grow: 1;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--text-white);
+    letter-spacing: 0.5px;
+    border-top: 1px solid var(--border-darker);
+    padding-top: 12px;
+}
+
+.card-badge {
+    font-family: var(--font-pixel);
+    font-weight: 400;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: var(--accent-button);
+    color: var(--on-accent);
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.card-footer button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.card-footer .arrow {
+    font-size: 16px;
+    color: var(--text-white);
+}
+
+.game-card:hover .card-footer,
+.game-card:hover .card-footer .arrow {
+    color: var(--accent);
+}
+
+@media (max-width: 1200px) {
+    .game-gallery {
+        grid-template-columns: repeat(2, 280px);
+    }
+    .section-title-wrapper {
+        width: 580px;
+    }
+}
+
+@media (max-width: 640px) {
+    .game-gallery {
+        grid-template-columns: repeat(1, 280px);
+    }
+    .section-title-wrapper {
+        width: 280px;
+    }
+}
+
+/* Targeting-reticle corners that snap in around a hovered quest card. */
+.game-card::after {
+    --corner: linear-gradient(var(--accent), var(--accent));
+    content: "";
+    position: absolute;
+    inset: -7px;
+    pointer-events: none;
+    background:
+        var(--corner) top left / 18px 2px, var(--corner) top left / 2px 18px,
+        var(--corner) top right / 18px 2px, var(--corner) top right / 2px 18px,
+        var(--corner) bottom left / 18px 2px, var(--corner) bottom left / 2px 18px,
+        var(--corner) bottom right / 18px 2px, var(--corner) bottom right / 2px 18px;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 0 6px rgba(var(--accent-rgb), 0.8));
+    opacity: 0;
+    transform: scale(1.06);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.game-card:hover::after,
+.game-card:focus-visible::after,
+.game-card:focus-within::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.card-img-wrapper img {
+    transition: filter 0.2s ease;
+}
+
+.game-card:hover .card-img-wrapper img {
+    filter: brightness(1.1) saturate(1.1);
+}
+
+.card-img-wrapper::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -35%;
+    height: 35%;
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent, rgba(var(--accent-rgb), 0.25) 40%, rgba(255, 255, 255, 0.35) 50%, rgba(var(--accent-rgb), 0.25) 60%, transparent);
+    opacity: 0;
+}
+
+.game-card:hover .card-img-wrapper::after {
+    animation: scanSweep 0.7s ease-out;
+}
+
+@keyframes scanSweep {
+    from { top: -35%; opacity: 1; }
+    to { top: 100%; opacity: 1; }
+}

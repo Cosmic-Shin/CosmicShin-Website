@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" sizes="48x48">
+    <link rel="icon" id="site-favicon" type="image/png" sizes="32x32" href="images/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#101010">
+    <title>Shitty Shift - CosmicShin</title>
+    <meta name="description" content="A 3D horror-puzzle game where a janitor wakes up after being pranked with hallucinogens, navigating a dark school while avoiding hostile waste creatures. Play it in your browser.">
+    <link rel="canonical" href="https://cosmicshin.netlify.app/game1">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CosmicShin's Archives">
+    <meta property="og:title" content="Shitty Shift - CosmicShin">
+    <meta property="og:description" content="A 3D horror-puzzle game where a janitor wakes up after being pranked with hallucinogens, navigating a dark school while avoiding hostile waste creatures. Play it in your browser.">
+    <meta property="og:url" content="https://cosmicshin.netlify.app/game1">
+    <meta property="og:image" content="https://cosmicshin.netlify.app/images/share/game1.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="game-page">
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div id="page-overlay" class="page-transition-overlay"></div>
+
+    <div id="starfield-container"></div>
+
+    <header class="site-header">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="site-logo">
+                    <img src="images/RedLogo.webp" data-theme-asset="Logo" alt="CosmicShin Logo">
+                </div>
+
+                <nav class="nav-links">
+                    <a href="index.html" class="nav-link">MAIN HUB</a>
+
+                    <div class="dropdown">
+                        <a href="index.html#gallery-section" class="nav-link active">ARCHIVES</a>
+                        <div class="dropdown-content">
+                            <a href="game1.html">SHITTY SHIFT</a>
+                            <a href="game2.html">SUSSY EMPLOYEES</a>
+                            <a href="game3.html">LUCK OF SPEED</a>
+                            <a href="game4.html">VOCAL STRIKE</a>
+                            <a href="game5.html">MILLENNIAL JOINT</a>
+                            <a href="game6.html">CALM BEFORE THE RUSH</a>
+                            <a href="game7.html">MILLENNIAL JOINT: REMASTERED</a>
+                            <button type="button" data-soon="STILL HERDING... COMING SOON!" aria-live="polite">HERDING CATS</button>
+                        </div>
+                    </div>
+
+                    <a href="inventory.html" class="nav-link">INVENTORY</a>
+                    <a href="contact.html" class="nav-link">CONTACT</a>
+                </nav>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/Cosmic-Shin" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub">
+                    <img src="images/RedGithub.webp" data-theme-asset="Github" alt="GitHub">
+                </a>
+                <a href="https://www.facebook.com/adrian.van.484249/" target="_blank" rel="noopener noreferrer" class="social-icon" title="Facebook">
+                    <img src="images/RedFacebook.webp" data-theme-asset="Facebook" alt="Facebook">
+                </a>
+                <a href="https://www.youtube.com/@StrawberryDork612" target="_blank" rel="noopener noreferrer" class="social-icon" title="YouTube">
+                    <img src="images/RedYoutube.webp" data-theme-asset="Youtube" alt="YouTube">
+                </a>
+                <a href="https://bsky.app/profile/cosmicshin.bsky.social" target="_blank" rel="noopener noreferrer" class="social-icon" title="Bluesky">
+                    <img src="images/RedBsky.webp" data-theme-asset="Bsky" alt="Bluesky">
+                </a>
+            </div>
+        </div>
+    </header>
+    <div id="main-content" tabindex="-1"></div>
+
+    <div class="top-banner">
+        <img src="images/RedBanner.webp" data-theme-asset="Banner" alt="">
+        <div class="banner-content">
+            <span class="system-tag">• ARCHIVE MODULE // PLAYABLE WEBGL BUILD</span>
+            <h1>SHITTY SHIFT</h1>
+            <p class="banner-description">
+                Explore the abandoned school, solve environmental puzzles, and survive the trash-born horrors stalking the halls.
+            </p>
+        </div>
+    </div>
+
+    <div class="game-display-section">
+        <div id="unity-container" class="game-player-compact">
+            <canvas id="unity-canvas" tabindex="-1" data-build-path="Build/Game1Build/Build" data-build-name="ShittyShift" data-game-title="Shitty Shift"></canvas>
+            <button id="unity-play-button" class="support-btn unity-play-button" type="button" data-goatcounter-click="play-game1-browser" data-goatcounter-title="Played in browser: Shitty Shift">
+                PLAY IN BROWSER
+                <small>About a 280 MB download</small>
+            </button>
+            <div id="unity-loading-bar">
+                <div id="unity-progress-bar-empty">
+                    <div id="unity-progress-bar-full"></div>
+                </div>
+            </div>
+            <div id="unity-warning"> </div>
+            <div id="unity-footer">
+                <div id="unity-build-title">Shitty Shift</div>
+                <div id="unity-controls">
+                    <input id="unity-volume-control" type="range" min="0" max="1" step="0.01" value="1" aria-label="Game volume">
+                    <div id="unity-fullscreen-button"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-promo-container">
+        <div class="profile-promo-wrapper">
+            <div class="profile-card">
+                <h2 class="game-details-title">SHITTY SHIFT</h2>
+                <p class="game-details-description">
+                    Shitty Shift is a first-person 3D psychological horror-puzzle game set within the silent, suffocating corridors of an abandoned school during a late-night janitorial shift.
+                    The story follows a worn-out janitor who regains consciousness on the restricted third floor after falling victim to a malicious hallucinogenic prank. Upon waking,
+                    the familiar school transforms into a surreal nightmare—corridors warp, exits seal off, and grotesque creatures forged from decaying trash and school waste stalk the shadows.
+                    To escape the lock-in, players must manage their fragile sanity, scavenge for vital tools, and solve multi-layered environmental puzzles while evading relentless, trash-born
+                    monstrosities hunting them through the dark.
+                </p>
+
+                <div class="game-specs">
+                    <div class="spec-item"><span class="spec-label">ENGINE</span><span class="spec-value">UNITY</span></div>
+                    <div class="spec-item"><span class="spec-label">TIMELINE</span><span class="spec-value">1 MONTH</span></div>
+                    <div class="spec-item"><span class="spec-label">PLATFORM</span><span class="spec-value">PC</span></div>
+                </div>
+
+                <div class="game-backstory-box">
+                    <div class="backstory-item">
+                        <span class="backstory-label">• MY ROLE & CONTRIBUTIONS</span>
+                        <p class="backstory-text">
+                            <strong>Lead Developer & System Programmer:</strong> Spearheaded full technical development, implementing core gameplay mechanics, puzzle logic, state management,
+                            and player interaction pipelines. Additionally, I modeled custom 3D environmental props, crafted UI/HUD elements, and balanced atmospheric lighting to drive player tension.
+                        </p>
+                    </div>
+
+                    <div class="backstory-item">
+                        <span class="backstory-label">• PROJECT ORIGIN & DESIGN VISION</span>
+                        <p class="backstory-text">
+                            Created as a core coursework project designed to test our ability to scope, build, and ship a fully playable, mechanics-driven puzzle game within a tight 1-month
+                            development sprint. Drawing deep artistic and structural inspiration from psychological horror titles like <em>Silent Hill f</em>, my team and I aimed to merge eerie,
+                            claustrophobic school settings with environmental puzzle-solving and relentless waste-monster mechanics.
+                        </p>
+                    </div>
+
+                    <div class="backstory-item">
+                        <span class="backstory-label">• TEAM MEMBERS</span>
+                        <ul class="team-members-list">
+                            <li class="team-member">Alessandro Jonner Hombre</li>
+                            <li class="team-member">Jay Isaga Salilima</li>
+                            <li class="team-member">John Louise Sotto</li>
+                            <li class="team-member">Bella Udtohan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="promo-card">
+                <div class="promo-media-wrapper">
+                    <img loading="lazy" src="images/Game1.webp" alt="Shitty Shift cover" class="promo-img">
+                </div>
+                <a href="https://cosmicshin.itch.io/shitty-shift" target="_blank" rel="noopener noreferrer" class="support-btn" data-goatcounter-click="download-game1" data-goatcounter-title="Download: Shitty Shift">
+                    DOWNLOAD GAME
+                </a>
+            </div>
+        </div>
+
+        <div class="screenshots-section">
+            <div class="screenshots-header">
+                <span class="sub-header">• VISUAL EVIDENCE</span>
+                <h2 class="main-header">SCREENSHOTS</h2>
+            </div>
+
+            <div class="screenshots-grid">
+                <img loading="lazy" src="images/Game1ss1.webp" alt="Shitty Shift Screenshot 1">
+                <img loading="lazy" src="images/Game1ss2.webp" alt="Shitty Shift Screenshot 2">
+                <img loading="lazy" src="images/Game1ss3.webp" alt="Shitty Shift Screenshot 3">
+                <img loading="lazy" src="images/Game1ss4.webp" alt="Shitty Shift Screenshot 4">
+            </div>
+        </div>
+    </div>
+
+    <nav class="quest-nav" aria-label="More quests">
+        <a href="game7.html" class="quest-nav-link quest-nav-prev">
+            <span class="quest-nav-label">&lsaquo; PREVIOUS QUEST</span>
+            <span class="quest-nav-title">MILLENNIAL JOINT: REMASTERED</span>
+        </a>
+        <a href="game2.html" class="quest-nav-link quest-nav-next">
+            <span class="quest-nav-label">NEXT QUEST &rsaquo;</span>
+            <span class="quest-nav-title">SUSSY EMPLOYEES</span>
+        </a>
+    </nav>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <nav class="footer-links">
+                <a href="https://cosmicshin.neocities.org/" target="_blank" rel="noopener noreferrer" class="footer-link">CHARACTER</a>
+                <a href="licenses.html" class="footer-link">LICENSES</a>
+                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="footer-link">RESUME</a>
+                <a href="links.html" class="footer-link">LINKS</a>
+                <a href="achievements.html" class="footer-link">ACHIEVEMENTS</a>
+                <a href="cookies.html" class="footer-link">COOKIE</a>
+            </nav>
+            <div class="footer-copyright">
+                <span>© 2026 COSMICSHIN. ALL RIGHTS RESERVED.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/00-boot.js"></script>
+    <script src="scripts/01-settings.js"></script>
+    <script src="scripts/02-effects.js"></script>
+    <script src="scripts/03-page.js"></script>
+    <script src="scripts/04-stats.js"></script>
+    <script src="scripts/05-achievements.js"></script>
+    <script src="scripts/unity-player.js"></script>
+
+</body>
+</html>

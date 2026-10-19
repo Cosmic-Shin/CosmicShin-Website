@@ -1,0 +1,323 @@
+/* Pixel font for small HUD labels. VT323, SIL Open Font License (fonts/VT323-OFL.txt). */
+@font-face {
+    font-family: "VT323";
+    src: url("../fonts/VT323.woff2") format("woff2");
+    font-display: swap;
+}
+
+:root {
+    --bg-dark: #101010;
+    --bg-darker: #0d0d0d;
+    --bg-card: #161616;
+    --bg-input: #121212;
+    --accent: #fd1000;
+    --accent-alt: #d92323;
+    --accent-hover: #b50000;
+    --accent-rgb: 253, 16, 0;
+    --accent-button: #d92323;
+    --on-accent: #ffffff;
+    --border-dark: #2a2a2a;
+    --border-darker: #222222;
+    --border-accent: #7d0000;
+    --text-white: #ffffff;
+    --text-gray: #cccccc;
+    --text-muted: #888888;
+    --max-width-site: 1280px;
+    --font-pixel: "VT323", "Courier New", monospace;
+}
+
+:root[data-theme="blue"],
+body[data-theme="blue"] {
+    --bg-dark: #101010;
+    --bg-darker: #0d0d0d;
+    --bg-card: #161616;
+    --bg-input: #121212;
+    --accent: #6d8cff;
+    --accent-alt: #9caeff;
+    --accent-hover: #8ba3ff;
+    --accent-rgb: 109, 140, 255;
+    --accent-button: #6d8cff;
+    --on-accent: #101010;
+    --border-accent: #35477f;
+    --border-dark: #2d385b;
+    --border-darker: #222c4b;
+}
+
+:root[data-theme="purple"],
+body[data-theme="purple"] {
+    --bg-dark: #101010;
+    --bg-darker: #0d0d0d;
+    --bg-card: #161616;
+    --bg-input: #121212;
+    --accent: #d35b9e;
+    --accent-alt: #f09ac7;
+    --accent-hover: #e27bb3;
+    --accent-rgb: 211, 91, 158;
+    --accent-button: #d35b9e;
+    --on-accent: #101010;
+    --border-accent: #773557;
+    --border-dark: #493047;
+    --border-darker: #352234;
+}
+
+:root[data-theme="teal"],
+body[data-theme="teal"] {
+    --bg-dark: #101010;
+    --bg-darker: #0d0d0d;
+    --bg-card: #161616;
+    --bg-input: #121212;
+    --accent: #3ac7bd;
+    --accent-alt: #74d7d0;
+    --accent-hover: #289f97;
+    --accent-rgb: 58, 199, 189;
+    --accent-button: #3ac7bd;
+    --on-accent: #101010;
+    --border-accent: #20615d;
+    --border-dark: #225753;
+    --border-darker: #194542;
+}
+
+:root[data-theme="orange"],
+body[data-theme="orange"] {
+    --bg-dark: #101010;
+    --bg-darker: #0d0d0d;
+    --bg-card: #161616;
+    --bg-input: #121212;
+    --accent: #ff7519;
+    --accent-alt: #ffa56a;
+    --accent-hover: #cc580b;
+    --accent-rgb: 255, 117, 25;
+    --accent-button: #ff7519;
+    --on-accent: #101010;
+    --border-accent: #7d3d12;
+    --border-dark: #572f14;
+    --border-darker: #45230d;
+}
+
+:root[data-theme="gold"],
+body[data-theme="gold"] {
+    --bg-dark: #101010;
+    --bg-darker: #0d0d0d;
+    --bg-card: #161616;
+    --bg-input: #121212;
+    --accent: #ffc926;
+    --accent-alt: #ffdc72;
+    --accent-hover: #cc9e16;
+    --accent-rgb: 255, 201, 38;
+    --accent-button: #ffc926;
+    --on-accent: #101010;
+    --border-accent: #7d6418;
+    --border-dark: #574718;
+    --border-darker: #453810;
+}
+
+html, body {
+    background-color: var(--bg-dark);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: var(--accent);
+    overflow-x: clip;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-darker);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body.crt-shaders::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999997;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.035) 0,
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px,
+            transparent 4px
+        ),
+        radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.42) 100%);
+    opacity: 0.65;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* Page changes look like an old CRT TV switching on and off. The ::before is the "screen": its huge
+   shadow covers everything outside it, so shrinking it closes the picture to a bright line, then nothing. */
+.page-transition-overlay {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 999998;
+}
+
+.page-transition-overlay::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 100vmax var(--bg-darker);
+    animation: crtOn 0.45s ease-out both;
+}
+
+.page-transition-overlay.crt-off::before {
+    animation: crtOff 0.38s ease-in both;
+}
+
+@keyframes crtOn {
+    0% { width: 0; height: 2px; background-color: rgba(255, 255, 255, 0.9); }
+    40% { width: 100vw; height: 2px; background-color: rgba(255, 255, 255, 0.9); }
+    100% { width: 100vw; height: 100vh; background-color: transparent; }
+}
+
+@keyframes crtOff {
+    0% { width: 100vw; height: 100vh; background-color: transparent; }
+    55% { width: 100vw; height: 2px; background-color: rgba(255, 255, 255, 0.9); }
+    100% { width: 0; height: 2px; background-color: rgba(255, 255, 255, 0); }
+}
+
+#starfield-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.pixel-star {
+    position: fixed;
+    background-color: var(--text-white);
+    pointer-events: none;
+    z-index: 0;
+    image-rendering: pixelated;
+    animation: floatPixelStar linear infinite;
+}
+
+.pixel-star.accent {
+    background-color: var(--accent);
+}
+
+body:not(.starfield) #starfield-container {
+    display: none;
+}
+
+.star-particle {
+    position: absolute;
+    object-fit: contain;
+    mix-blend-mode: screen;
+    opacity: 0.6;
+}
+
+.star-floating {
+    animation: floatUp linear infinite, twinkle ease-in-out infinite alternate;
+}
+
+.star-burst-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    object-fit: contain;
+    mix-blend-mode: screen;
+    will-change: transform, opacity, filter;
+    animation: supernovaBurst 0.9s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes floatPixelStar {
+    0% { transform: translate(0, 0); opacity: 0.2; }
+    50% { opacity: 0.9; }
+    100% { transform: translate(var(--move-x), var(--move-y)); opacity: 0.2; }
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-140px) rotate(360deg); }
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.15; filter: drop-shadow(0 0 2px rgba(var(--accent-rgb), 0.2)); }
+    100% { opacity: 0.85; filter: drop-shadow(0 0 8px rgba(var(--accent-rgb), 0.8)); }
+}
+
+@keyframes supernovaBurst {
+    0% { opacity: 1; transform: translate(0, 0) scale(0.3) rotate(0deg); filter: drop-shadow(0 0 10px var(--accent)); }
+    50% { opacity: 1; filter: drop-shadow(0 0 6px var(--accent)); }
+    100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(1.2) rotate(var(--rot)); filter: drop-shadow(0 0 0px transparent); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+#main-content:focus {
+    outline: none;
+}
+
+.skip-link {
+    position: fixed;
+    top: -80px;
+    left: 16px;
+    z-index: 10000001;
+    padding: 12px 20px;
+    border-radius: 4px;
+    background-color: var(--accent-button);
+    color: var(--on-accent);
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 16px;
+}
+
+body.theme-loading [data-theme-asset] {
+    visibility: hidden;
+}
+
+.reveal {
+    opacity: 0;
+}
+
+.reveal.revealed {
+    animation: revealUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes revealUp {
+    from { opacity: 0; translate: 0 28px; }
+    to { opacity: 1; translate: 0 0; }
+}

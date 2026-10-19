@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Theme Image Maker - CosmicShin</title>
+    <style>
+        :root { --bg: #101010; --card: #161616; --border: #2a2a2a; --red: #fd1000; --text: #fff; --gray: #ccc; --muted: #888; }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 40px 24px; background: var(--bg); color: var(--text); font-family: Arial, Helvetica, sans-serif; }
+        main { max-width: 1000px; margin: 0 auto; }
+        h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: 1px; }
+        .tag { color: var(--red); font-size: 12px; font-weight: 800; letter-spacing: 2px; }
+        p { color: var(--gray); line-height: 1.6; }
+        code { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 20px; margin: 20px 0; }
+        h2 { margin: 0 0 12px; font-size: 15px; letter-spacing: 1px; color: var(--red); }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); font-size: 14px; }
+        th { color: var(--muted); font-weight: 700; font-size: 12px; letter-spacing: 1px; }
+        input[type="number"], input[type="text"] { width: 90px; padding: 6px 8px; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 4px; font: inherit; }
+        .swatch { display: inline-block; width: 22px; height: 22px; border-radius: 4px; vertical-align: middle; border: 1px solid var(--border); }
+        #drop { border: 2px dashed var(--border); border-radius: 6px; padding: 40px 20px; text-align: center; cursor: pointer; transition: border-color 0.2s; }
+        #drop.over, #drop:hover, #drop:focus-visible { border-color: var(--red); outline: none; }
+        #drop strong { display: block; font-size: 18px; margin-bottom: 6px; }
+        button { padding: 10px 18px; border: none; border-radius: 4px; background: var(--red); color: #fff; font: inherit; font-weight: 800; letter-spacing: 1px; cursor: pointer; }
+        button.small { padding: 6px 10px; font-size: 12px; background: transparent; border: 1px solid var(--border); }
+        button.small:hover { border-color: var(--red); }
+        button:disabled { opacity: 0.4; cursor: default; }
+        .row { display: grid; grid-template-columns: 180px repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; align-items: start; padding: 16px 0; border-bottom: 1px solid var(--border); }
+        .row:last-child { border-bottom: none; }
+        .file-name { font-weight: 700; word-break: break-all; }
+        figure { margin: 0; }
+        figcaption { font-size: 12px; color: var(--muted); margin: 6px 0; word-break: break-all; }
+        canvas { width: 100%; max-height: 140px; object-fit: contain; border-radius: 4px;
+                 background: repeating-conic-gradient(#222 0 25%, #1a1a1a 0 50%) 0 0 / 16px 16px; }
+        .actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+        .note { font-size: 13px; color: var(--muted); }
+    </style>
+</head>
+<body>
+<main>
+    <span class="tag">• SITE TOOL // NOT PART OF THE WEBSITE</span>
+    <h1>THEME IMAGE MAKER</h1>
+    <p>
+        Make only the <strong>red</strong> version of an image, drop it here, and download the blue and purple versions,
+        already named for the site: <code>RedStar.webp</code> becomes <code>BlueStar.webp</code> and <code>PurpleStar.webp</code>.
+        Only red parts are recolored; white, black, greys and other colors stay the same. Put the downloaded files in your
+        <code>images</code> folder. Everything happens in your browser; nothing is uploaded.
+    </p>
+
+    <section class="card">
+        <h2>THEMES</h2>
+        <table>
+            <thead><tr><th>NAME</th><th>HUE (0-360)</th><th>SATURATION ×</th><th>BRIGHTNESS ×</th><th>RESULT</th></tr></thead>
+            <tbody id="themes"></tbody>
+        </table>
+        <p class="note">These defaults match your current blue and purple images. Changing a value updates every preview below.</p>
+    </section>
+
+    <section class="card">
+        <div id="drop" tabindex="0" role="button" aria-label="Choose red images">
+            <strong>Drop red images here</strong>
+            <span class="note">or click to choose files (PNG, WebP or JPG)</span>
+        </div>
+        <input id="file-input" type="file" accept="image/*" multiple hidden>
+    </section>
+
+    <section class="card" id="results-card" hidden>
+        <div class="actions">
+            <button id="download-all" type="button">DOWNLOAD ALL</button>
+            <span class="note">Your browser may ask once to allow downloading several files.</span>
+        </div>
+        <div id="results"></div>
+    </section>
+</main>
+
+<script>
+(() => {
+    const THEMES = [
+        { name: 'Blue', hue: 227, saturation: 0.65, brightness: 1.15 },
+        { name: 'Purple', hue: 325, saturation: 0.65, brightness: 0.90 },
+    ];
+
+    const images = [];
+    const themesBody = document.getElementById('themes');
+    const drop = document.getElementById('drop');
+    const fileInput = document.getElementById('file-input');
+    const results = document.getElementById('results');
+    const resultsCard = document.getElementById('results-card');
+
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+    function hsvToRgb(h, s, v) {
+        const c = v * s;
+        const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+        const m = v - c;
+        const [r, g, b] = [[c, x, 0], [x, c, 0], [0, c, x], [0, x, c], [x, 0, c], [c, 0, x]][Math.floor(h / 60) % 6];
+        return [r + m, g + m, b + m];
+    }
+
+    function recolor(source, theme) {
+        const canvas = document.createElement('canvas');
+        canvas.width = source.width;
+        canvas.height = source.height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(source, 0, 0);
+        const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const px = data.data;
+
+        for (let i = 0; i < px.length; i += 4) {
+            const r = px[i] / 255, g = px[i + 1] / 255, b = px[i + 2] / 255;
+            const max = Math.max(r, g, b), min = Math.min(r, g, b), delta = max - min;
+            if (delta < 1e-6) continue;
+
+            let hue;
+            if (max === r) hue = 60 * (((g - b) / delta) % 6);
+            else if (max === g) hue = 60 * ((b - r) / delta + 2);
+            else hue = 60 * ((r - g) / delta + 4);
+            if (hue < 0) hue += 360;
+            const sat = delta / max;
+
+            const distanceFromRed = Math.min(hue, 360 - hue);
+            const weight = clamp(1 - (distanceFromRed - 25) / 20, 0, 1) * clamp(sat / 0.25, 0, 1);
+            if (weight === 0) continue;
+
+            const [nr, ng, nb] = hsvToRgb(theme.hue % 360, clamp(sat * theme.saturation, 0, 1), clamp(max * theme.brightness, 0, 1));
+            px[i] = Math.round((r * (1 - weight) + nr * weight) * 255);
+            px[i + 1] = Math.round((g * (1 - weight) + ng * weight) * 255);
+            px[i + 2] = Math.round((b * (1 - weight) + nb * weight) * 255);
+        }
+
+        ctx.putImageData(data, 0, 0);
+        return canvas;
+    }
+
+    function outputName(fileName, themeName) {
+        const base = fileName.replace(/\.[^.]+$/, '').replace(/^Red/, '');
+        return `${themeName}${base}`;
+    }
+
+    function swatchColor(theme) {
+        const [r, g, b] = hsvToRgb(theme.hue % 360, clamp(theme.saturation, 0, 1), clamp(0.99 * theme.brightness, 0, 1));
+        return `rgb(${Math.round(r * 255)}, ${Math.round(g * 255)}, ${Math.round(b * 255)})`;
+    }
+
+    function renderThemes() {
+        themesBody.innerHTML = '';
+        THEMES.forEach((theme) => {
+            const tr = document.createElement('tr');
+            const cell = (content) => { const td = document.createElement('td'); td.append(content); tr.append(td); return td; };
+            const field = (key, step, type = 'number') => {
+                const input = document.createElement('input');
+                input.type = type;
+                input.value = theme[key];
+                if (type === 'number') input.step = step;
+                input.setAttribute('aria-label', `${theme.name} ${key}`);
+                input.addEventListener('input', () => {
+                    theme[key] = type === 'number' ? Number(input.value) || 0 : input.value.trim() || theme[key];
+                    swatch.style.background = swatchColor(theme);
+                    renderResults();
+                });
+                return input;
+            };
+            cell(field('name', null, 'text'));
+            cell(field('hue', 1));
+            cell(field('saturation', 0.05));
+            cell(field('brightness', 0.05));
+            const swatch = document.createElement('span');
+            swatch.className = 'swatch';
+            swatch.style.background = swatchColor(theme);
+            cell(swatch);
+            themesBody.append(tr);
+        });
+    }
+
+    function saveCanvas(canvas, name) {
+        canvas.toBlob((blob) => {
+            const extension = blob.type === 'image/webp' ? 'webp' : 'png';
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `${name}.${extension}`;
+            link.click();
+            setTimeout(() => URL.revokeObjectURL(link.href), 2000);
+        }, 'image/webp', 0.95);
+    }
+
+    function renderResults() {
+        results.innerHTML = '';
+        resultsCard.hidden = images.length === 0;
+
+        images.forEach((item) => {
+            item.outputs = THEMES.map((theme) => ({ name: outputName(item.fileName, theme.name), canvas: recolor(item.image, theme) }));
+
+            const row = document.createElement('div');
+            row.className = 'row';
+            const label = document.createElement('div');
+            label.className = 'file-name';
+            label.textContent = item.fileName;
+            row.append(label);
+
+            const original = document.createElement('figure');
+            const originalCanvas = document.createElement('canvas');
+            originalCanvas.width = item.image.width;
+            originalCanvas.height = item.image.height;
+            originalCanvas.getContext('2d').drawImage(item.image, 0, 0);
+            const originalCaption = document.createElement('figcaption');
+            originalCaption.textContent = 'Original';
+            original.append(originalCaption, originalCanvas);
+            row.append(original);
+
+            item.outputs.forEach((output) => {
+                const figure = document.createElement('figure');
+                const caption = document.createElement('figcaption');
+                caption.textContent = `${output.name}.webp`;
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'small';
+                button.textContent = 'DOWNLOAD';
+                button.addEventListener('click', () => saveCanvas(output.canvas, output.name));
+                figure.append(caption, output.canvas, button);
+                row.append(figure);
+            });
+
+            results.append(row);
+        });
+    }
+
+    function addFiles(fileList) {
+        const files = [...fileList].filter((file) => file.type.startsWith('image/'));
+        Promise.all(files.map((file) => new Promise((resolve) => {
+            const image = new Image();
+            image.onload = () => resolve({ fileName: file.name, image });
+            image.onerror = () => resolve(null);
+            image.src = URL.createObjectURL(file);
+        }))).then((loaded) => {
+            loaded.filter(Boolean).forEach((item) => {
+                const existing = images.findIndex((other) => other.fileName === item.fileName);
+                if (existing >= 0) images[existing] = item;
+                else images.push(item);
+            });
+            renderResults();
+        });
+    }
+
+    drop.addEventListener('click', () => fileInput.click());
+    drop.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            fileInput.click();
+        }
+    });
+    fileInput.addEventListener('change', () => {
+        addFiles(fileInput.files);
+        fileInput.value = '';
+    });
+    ['dragenter', 'dragover'].forEach((type) => drop.addEventListener(type, (event) => {
+        event.preventDefault();
+        drop.classList.add('over');
+    }));
+    ['dragleave', 'drop'].forEach((type) => drop.addEventListener(type, () => drop.classList.remove('over')));
+    drop.addEventListener('drop', (event) => {
+        event.preventDefault();
+        addFiles(event.dataTransfer.files);
+    });
+
+    document.getElementById('download-all').addEventListener('click', () => {
+        const all = images.flatMap((item) => item.outputs);
+        all.forEach((output, index) => setTimeout(() => saveCanvas(output.canvas, output.name), index * 250));
+    });
+
+    renderThemes();
+})();
+</script>
+</body>
+</html>
