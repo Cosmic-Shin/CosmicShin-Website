@@ -79,8 +79,8 @@
 }
 
 .profile-bio {
-    color: #aaaaaa;
-    font-size: 13px;
+    color: var(--text-gray);
+    font-size: 15px;
     line-height: 1.6;
     margin: 0 0 24px 0;
 }
@@ -192,6 +192,11 @@ img[data-zoom] {
     flex-direction: column;
 }
 
+.promo-cta {
+    align-self: flex-start;
+    margin-top: 16px;
+}
+
 .promo-title {
     color: var(--text-white);
     font-size: 22px;
@@ -201,8 +206,8 @@ img[data-zoom] {
 }
 
 .promo-description {
-    color: #aaaaaa;
-    font-size: 13px;
+    color: var(--text-gray);
+    font-size: 15px;
     line-height: 1.6;
     margin: 0;
 }
@@ -315,9 +320,9 @@ img[data-zoom] {
 }
 
 .game-card p {
-    color: #aaaaaa;
-    font-size: 12px;
-    line-height: 1.4;
+    color: #bbbbbb;
+    font-size: 13.5px;
+    line-height: 1.5;
     margin: 0 0 20px 0;
     flex-grow: 1;
 }
@@ -332,20 +337,6 @@ img[data-zoom] {
     letter-spacing: 0.5px;
     border-top: 1px solid var(--border-darker);
     padding-top: 12px;
-}
-
-.card-badge {
-    font-family: var(--font-pixel);
-    font-weight: 400;
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    padding: 4px 8px;
-    border-radius: 4px;
-    background-color: var(--accent-button);
-    color: var(--on-accent);
-    font-size: 15px;
-    letter-spacing: 1px;
 }
 
 .card-footer button {

@@ -42,14 +42,14 @@
                     <div class="dropdown">
                         <a href="index.html#gallery-section" class="nav-link">ARCHIVES</a>
                         <div class="dropdown-content">
-                            <a href="game1.html">SHITTY SHIFT</a>
-                            <a href="game2.html">SUSSY EMPLOYEES</a>
-                            <a href="game3.html">LUCK OF SPEED</a>
-                            <a href="game4.html">VOCAL STRIKE</a>
-                            <a href="game5.html">MILLENNIAL JOINT</a>
-                            <a href="game6.html">CALM BEFORE THE RUSH</a>
-                            <a href="game7.html">MILLENNIAL JOINT: REMASTERED</a>
-                            <button type="button" data-soon="STILL HERDING... COMING SOON!" aria-live="polite">HERDING CATS</button>
+                            <a href="herding-cats.html">HERDING CATS</a>
+                            <a href="millennial-joint-remastered.html">MILLENNIAL JOINT: REMASTERED</a>
+                            <a href="shitty-shift.html">SHITTY SHIFT</a>
+                            <a href="millennial-joint.html">MILLENNIAL JOINT</a>
+                            <a href="sussy-employees.html">SUSSY EMPLOYEES</a>
+                            <a href="calm-before-the-rush.html">CALM BEFORE THE RUSH</a>
+                            <a href="luck-of-speed.html">LUCK OF SPEED</a>
+                            <a href="vocal-strike.html">VOCAL STRIKE</a>
                         </div>
                     </div>
 
@@ -83,142 +83,368 @@
             <span class="system-tag">• SYSTEM CONNECTED // PORTFOLIO INITIALIZED</span>
             <h1>COSMICSHIN'S INVENTORY</h1>
             <p class="banner-description">
-                CosmicShin's Asset Inventory. Explore 3D models, props, and custom game assets built for personal projects and prototypes. Click any item slot to inspect the model and details.
+                CosmicShin's Asset Inventory. Explore character art, 3D models, props, and game assets built for my projects and prototypes. Pick a category below, then click any item slot for a closer look.
             </p>
         </div>
     </div>
 
     <div class="inventory-container">
 
-        <div class="inventory-item img-right">
-            <div class="inventory-text">
-                <h2>TV HEAD KILL ANIMATION</h2>
-                <p>A custom pixel-art elimination frame created for Sussy Employees. Designed to convey sudden atmospheric dread, this dynamic jumpscare sequence zooms in on the rogue TV-headed character's glowing, unblinking screen as it corner-traps unsuspecting coworkers in dark office corridors. Features custom retro dithering, high-contrast voxel texturing, and expressive low-poly character geometry.</p>
-            </div>
-            <div class="inventory-media">
-                <img loading="lazy" src="images/Inventory1.webp" alt="TV Head Kill Animation">
-            </div>
+        <div class="inventory-filter" role="group" aria-label="Filter by category">
+            <button type="button" class="inventory-filter-btn" data-filter="all" aria-pressed="true">ALL</button>
+            <button type="button" class="inventory-filter-btn" data-filter="artworks" aria-pressed="false">ARTWORKS</button>
+            <button type="button" class="inventory-filter-btn" data-filter="neon-swarm" aria-pressed="false">NEON SWARM</button>
+            <button type="button" class="inventory-filter-btn" data-filter="cyberpunk-city" aria-pressed="false">CYBERPUNK CITY</button>
+            <button type="button" class="inventory-filter-btn" data-filter="others" aria-pressed="false">OTHERS</button>
         </div>
 
-        <div class="inventory-item img-left">
-            <div class="inventory-media">
-                <img loading="lazy" src="images/Inventory2.webp" alt="Boss Character Model Sheet">
+        <section class="inventory-section" id="artworks" data-category="artworks">
+            <div class="section-title-wrapper">
+                <span class="sub-header">• CATEGORY 01</span>
+                <h2 class="main-header">ARTWORKS</h2>
+                <p class="inventory-section-intro">2D character art, sprite sheets and animation from my game and animation projects.</p>
             </div>
-            <div class="inventory-text">
-                <h2>BOSS – CHARACTER MODEL SHEET</h2>
-                <p>Complete 2D animation character sheet for "The Boss," the central antagonist designed for a 2D animation project. Features a full 360-degree turnaround model breakdown paired with expressive facial emotion keyframes to ensure production consistency across animation pipelines. Designed with sharp, imposing geometry, deliberate linework, and a tailored 1940s-inspired trench coat silhouette that highlights his cold, calculated, and intimidating authority.</p>
-            </div>
-        </div>
 
-        <div class="inventory-item img-right">
-            <div class="inventory-text">
-                <h2>BOB – CHARACTER MODEL SHEET</h2>
-                <p>Official 2D animation character model sheet for "Bob," the central protagonist of a 2D animated project. Features a complete 360-degree orthographic turnaround paired with dynamic facial expression studies and keyframe pose breakdowns. Designed with vibrant crimson hair, wire-frame glasses, subtle fangs, and plain attire to emphasize his awkward, unassuming silhouette—creating a stark visual contrast against the blood-stained meat cleaver he wields.</p>
+            <div class="inventory-item img-right">
+                <div class="inventory-text">
+                    <h3>MIRA – HERDING CATS ANIMATIONS</h3>
+                    <p>Pixel-art sprite sheet for Mira, one of the three playable heroes in Herding Cats. Mira lobs sticky bombs that blow up whole crowds of slime cats. The sheet covers her walk and roll cycles in all eight directions plus her bomb-throwing attack in four diagonal directions.</p>
+                </div>
+                <div class="inventory-media">
+                    <img loading="lazy" src="images/Inventory/Artworks/mira-animations.webp" alt="Mira animation sprite sheet">
+                </div>
             </div>
-            <div class="inventory-media">
-                <img loading="lazy" src="images/Inventory3.webp" alt="Bob Character Model Sheet">
-            </div>
-        </div>
 
-        <div class="inventory-item img-left">
-            <div class="inventory-media">
-                <img loading="lazy" src="images/Inventory4.webp" alt="SCI-FI SKYSCRAPER">
+            <div class="inventory-item img-left">
+                <div class="inventory-media">
+                    <img loading="lazy" src="images/Inventory/Artworks/nyx-animations.webp" alt="Nyx animation sprite sheet">
+                </div>
+                <div class="inventory-text">
+                    <h3>NYX – HERDING CATS ANIMATIONS</h3>
+                    <p>Pixel-art sprite sheet for Nyx, one of the three playable heroes in Herding Cats. Nyx sends out a swarm of drones that hack cats and turn them against each other. The sheet covers walk and roll cycles in all eight directions plus a four-direction attack.</p>
+                </div>
             </div>
-            <div class="inventory-text">
-                <h2>SCI-FI SKYSCRAPER</h2>
-                <p>Modular 3D skyscraper model designed for real-time cyberpunk city scenes. Built with clean geometric forms, metallic vent detailing, and custom corporate branding to quickly assemble dense, futuristic urban horizons.</p>
-            </div>
-        </div>
 
-        <div class="inventory-item img-right">
-            <div class="inventory-text">
-                <h2>HIGH-RISE SCI-FI SKYSCRAPER</h2>
-                <p>Stylized 3D skyscraper model with a sleek, futuristic design. Features a vertical composition with multiple levels, each with unique architectural elements and lighting effects to create a sense of depth and scale in cyberpunk cityscapes.</p>
+            <div class="inventory-item img-right">
+                <div class="inventory-text">
+                    <h3>LILAC – UNUSED HERO ANIMATIONS</h3>
+                    <p>Pixel-art sprite sheet for Lilac, a hero made for Herding Cats who didn't make it into the current build. She may show up in a future update. Like the other heroes, the sheet covers walk and roll cycles in eight directions and a four-direction attack.</p>
+                </div>
+                <div class="inventory-media">
+                    <img loading="lazy" src="images/Inventory/Artworks/lilac-animations.webp" alt="Lilac animation sprite sheet">
+                </div>
             </div>
-            <div class="inventory-media">
-                <img loading="lazy" src="images/Inventory5.webp" alt="HIGH-RISE SCI-FI SKYSCRAPER">
-            </div>
-        </div>
 
-        <div class="inventory-item img-left">
-            <div class="inventory-media">
-                <img loading="lazy" src="images/Inventory6.webp" alt="Cyberpunk Apartment Building">
+            <div class="inventory-item img-left">
+                <div class="inventory-media">
+                    <img loading="lazy" src="images/Inventory/Artworks/tv-head-kill-animation.webp" alt="TV Head Kill Animation">
+                </div>
+                <div class="inventory-text">
+                    <h3>TV HEAD KILL ANIMATION</h3>
+                    <p>A custom pixel-art elimination frame created for Sussy Employees. Designed to convey sudden atmospheric dread, this dynamic jumpscare sequence zooms in on the rogue TV-headed character's glowing, unblinking screen as it corner-traps unsuspecting coworkers in dark office corridors. Features custom retro dithering, high-contrast voxel texturing, and expressive low-poly character geometry.</p>
+                </div>
             </div>
-            <div class="inventory-text">
-                <h2>CYBERPUNK APARTMENT BUILDING</h2>
-                <p>High-rise 3D apartment building asset created for a cyberpunk urban environment. Built with modular snapping in mind and detailed with reflective windows, AC props, and urban graffiti decals to add depth and narrative environmental detail to street-level scenes.</p>
-            </div>
-        </div>
 
-        <div class="inventory-item img-right">
-            <div class="inventory-text">
-                <h2>SCI-FI ALLEY DUMPSTER PROP</h2>
-                <p>Low-poly 3D environmental prop modeled for a cyberpunk city class project. Textured with PBR material maps featuring heavy surface corrosion, rusted industrial green paint, grease stains, and subtle edge wear. Optimized for real-time game engines with an efficient polygon count, perfect for populating atmospheric alleyways, backstreets, and futuristic slum environments.</p>
+            <div class="inventory-item img-right">
+                <div class="inventory-text">
+                    <h3>BOSS – CHARACTER MODEL SHEET</h3>
+                    <p>Complete 2D animation character sheet for "The Boss," the central antagonist designed for a 2D animation project. Features a full 360-degree turnaround model breakdown paired with expressive facial emotion keyframes to ensure production consistency across animation pipelines. Designed with sharp, imposing geometry, deliberate linework, and a tailored 1940s-inspired trench coat silhouette that highlights his cold, calculated, and intimidating authority.</p>
+                </div>
+                <div class="inventory-media">
+                    <img loading="lazy" src="images/Inventory/Artworks/boss-character-model-sheet.webp" alt="Boss Character Model Sheet">
+                </div>
             </div>
-            <div class="inventory-media">
-                <img loading="lazy" src="images/Inventory7.webp" alt="Sci-Fi Alley Dumpster Prop">
-            </div>
-        </div>
 
-        <div class="inventory-item img-left">
-            <div class="inventory-media">
-                <img loading="lazy" src="images/Inventory8.webp" alt="Illuminated Signboard">
+            <div class="inventory-item img-left">
+                <div class="inventory-media">
+                    <img loading="lazy" src="images/Inventory/Artworks/bob-character-model-sheet.webp" alt="Bob Character Model Sheet">
+                </div>
+                <div class="inventory-text">
+                    <h3>BOB – CHARACTER MODEL SHEET</h3>
+                    <p>Official 2D animation character model sheet for "Bob," the central protagonist of a 2D animated project. Features a complete 360-degree orthographic turnaround paired with dynamic facial expression studies and keyframe pose breakdowns. Designed with vibrant crimson hair, wire-frame glasses, subtle fangs, and plain attire to emphasize his awkward, unassuming silhouette—creating a stark visual contrast against the blood-stained meat cleaver he wields.</p>
+                </div>
             </div>
-            <div class="inventory-text">
-                <h2>ILLUMINATED SIGNBOARD</h2>
-                <p>Low-poly 3D street advertisement kiosk modeled for a cyberpunk city scene. Features an illuminated, glowing display sign showcasing localized corporate branding paired with metallic teal casing, subtle paint scuffs, and edge wear. Designed as a freestanding street-level prop to provide dynamic point-source lighting and ambient atmosphere along urban sidewalks.</p>
-            </div>
-        </div>
+        </section>
 
-        <div class="inventory-item img-right">
-            <div class="inventory-text">
-                <h2>SCI-FI METALLIC BENCH</h2>
-                <p>Low-poly 3D street bench modeled as an environmental prop for a cyberpunk urban setting. Features heavy dark metallic casing, worn edge textures, sturdy side supports, and a distinct neon blue accent trim inset along the seating frame. Designed for populating sidewalks, public plazas, and transit stations to enhance environmental depth.</p>
+        <section class="inventory-section" id="neon-swarm" data-category="neon-swarm">
+            <div class="section-title-wrapper">
+                <span class="sub-header">• CATEGORY 02</span>
+                <h2 class="main-header">NEON SWARM</h2>
+                <p class="inventory-section-intro">Unit and building models for Neon Swarm, my cyberpunk RTS project. Click any slot for a closer look.</p>
             </div>
-            <div class="inventory-media">
-                <img loading="lazy" src="images/Inventory9.webp" alt="SCI-FI METALLIC BENCH">
-            </div>
-        </div>
 
-        <div class="inventory-item img-left">
-            <div class="inventory-media">
-                <img loading="lazy" src="images/Inventory10.webp" alt="SCI-FI METALLIC BENCH 2">
+            <h3 class="icon-group-title">UNITS <span>(19)</span></h3>
+            <div class="icon-grid">
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/bulwark-tick.webp" alt="BULWARK TICK" width="256" height="256">
+                    <figcaption>BULWARK TICK</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/burner.webp" alt="BURNER" width="256" height="256">
+                    <figcaption>BURNER</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/chromejaw.webp" alt="CHROMEJAW" width="256" height="256">
+                    <figcaption>CHROMEJAW</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/crusher-tarantula.webp" alt="CRUSHER TARANTULA" width="256" height="256">
+                    <figcaption>CRUSHER TARANTULA</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/data-harvester.webp" alt="DATA HARVESTER" width="256" height="256">
+                    <figcaption>DATA HARVESTER</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/emp-centipede.webp" alt="EMP CENTIPEDE" width="256" height="256">
+                    <figcaption>EMP CENTIPEDE</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/glitch-moth.webp" alt="GLITCH MOTH" width="256" height="256">
+                    <figcaption>GLITCH MOTH</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/hackling.webp" alt="HACKLING" width="256" height="256">
+                    <figcaption>HACKLING</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/mortar-scarab.webp" alt="MORTAR SCARAB" width="256" height="256">
+                    <figcaption>MORTAR SCARAB</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/netrunner-hive.webp" alt="NETRUNNER HIVE" width="256" height="256">
+                    <figcaption>NETRUNNER HIVE</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/overclock.webp" alt="OVERCLOCK" width="256" height="256">
+                    <figcaption>OVERCLOCK</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/patchbot.webp" alt="PATCHBOT" width="256" height="256">
+                    <figcaption>PATCHBOT</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/queen-arachne.webp" alt="QUEEN ARACHNE" width="256" height="256">
+                    <figcaption>QUEEN ARACHNE</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/ratline.webp" alt="RATLINE" width="256" height="256">
+                    <figcaption>RATLINE</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/relay-spire.webp" alt="RELAY SPIRE" width="256" height="256">
+                    <figcaption>RELAY SPIRE</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/skitter.webp" alt="SKITTER" width="256" height="256">
+                    <figcaption>SKITTER</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/sniper-mantis.webp" alt="SNIPER MANTIS" width="256" height="256">
+                    <figcaption>SNIPER MANTIS</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/strider.webp" alt="STRIDER" width="256" height="256">
+                    <figcaption>STRIDER</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/wire-weaver.webp" alt="WIRE WEAVER" width="256" height="256">
+                    <figcaption>WIRE WEAVER</figcaption>
+                </figure>
             </div>
-            <div class="inventory-text">
-                <h2>SCI-FI METALLIC BENCH 2</h2>
-                <p>A low-poly 3D urban seating asset designed for cyberpunk streetscapes and transit hubs. Constructed with dark wooden/composite slatted backing, a metallic structural frame, and dual neon blue light strips running along the seat edge and footrest bar. Built as a versatile environmental prop to fill out public plazas, walkways, and bus stop shelters.</p>
-            </div>
-        </div>
 
-        <div class="inventory-item img-right">
-            <div class="inventory-text">
-                <h2>DIGITAL STREET SIGN PROPS</h2>
-                <p>Futuristic street signage collection designed to guide and restrict flow across high-tech city sectors. Each freestanding sign combines heavy industrial metal posts with glowing digital display faces showing weathered hazard warnings and traffic commands, adding functional world-building detail to sci-fi streetscapes.</p>
+            <h3 class="icon-group-title">BUILDINGS <span>(16)</span></h3>
+            <div class="icon-grid">
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/arc-coil.webp" alt="ARC COIL" width="256" height="256">
+                    <figcaption>ARC COIL</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/assembly-hive.webp" alt="ASSEMBLY HIVE" width="256" height="256">
+                    <figcaption>ASSEMBLY HIVE</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/cloak-field-generator.webp" alt="CLOAK FIELD GENERATOR" width="256" height="256">
+                    <figcaption>CLOAK FIELD GENERATOR</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/core-nexus.webp" alt="CORE NEXUS" width="256" height="256">
+                    <figcaption>CORE NEXUS</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/data-refinery.webp" alt="DATA REFINERY" width="256" height="256">
+                    <figcaption>DATA REFINERY</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/data-siphon.webp" alt="DATA SIPHON" width="256" height="256">
+                    <figcaption>DATA SIPHON</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/emp-mine-field.webp" alt="EMP MINE FIELD" width="256" height="256">
+                    <figcaption>EMP MINE FIELD</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/firewall-gate.webp" alt="FIREWALL GATE" width="256" height="256">
+                    <figcaption>FIREWALL GATE</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/flak-lantern.webp" alt="FLAK LANTERN" width="256" height="256">
+                    <figcaption>FLAK LANTERN</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/neon-turret.webp" alt="NEON TURRET" width="256" height="256">
+                    <figcaption>NEON TURRET</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/overwatch-spire.webp" alt="OVERWATCH SPIRE" width="256" height="256">
+                    <figcaption>OVERWATCH SPIRE</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/power-pylon.webp" alt="POWER PYLON" width="256" height="256">
+                    <figcaption>POWER PYLON</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/railspike-tower.webp" alt="RAILSPIKE TOWER" width="256" height="256">
+                    <figcaption>RAILSPIKE TOWER</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/research-lab.webp" alt="RESEARCH LAB" width="256" height="256">
+                    <figcaption>RESEARCH LAB</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/sentry-drone-hangar.webp" alt="SENTRY DRONE HANGAR" width="256" height="256">
+                    <figcaption>SENTRY DRONE HANGAR</figcaption>
+                </figure>
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/uplink-tower.webp" alt="UPLINK TOWER" width="256" height="256">
+                    <figcaption>UPLINK TOWER</figcaption>
+                </figure>
             </div>
-            <div class="inventory-media">
-                <img loading="lazy" src="images/Inventory11.webp" alt="Digital Street Sign Props">
-            </div>
-        </div>
 
-        <div class="inventory-item img-left">
-            <div class="inventory-media">
-                <img loading="lazy" src="images/Inventory12.webp" alt="LOW-POLY CHEST">
+            <h3 class="icon-group-title">RESOURCES <span>(1)</span></h3>
+            <div class="icon-grid">
+                <figure class="icon-tile">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20RTS/data-crystal-ore.webp" alt="DATA CRYSTAL ORE" width="256" height="256">
+                    <figcaption>DATA CRYSTAL ORE</figcaption>
+                </figure>
             </div>
-            <div class="inventory-text">
-                <h2>LOW-POLY CHEST</h2>
-                <p>A stylized low-poly 3D crate/chest prop designed for real-time game environments. Features clean blocky geometry, matte khaki plating, side handles, and a central dark latching mechanism. Built with an optimized poly count, perfect as an interactive loot container, supply drop, or storage clutter for low-poly action and adventure games.</p>
-            </div>
-        </div>
+        </section>
 
-        <div class="inventory-item img-right">
-            <div class="inventory-text">
-                <h2>LOW-POLY BARREL</h2>
-                <p>A stylized low-poly 3D wooden barrel environmental prop modeled for real-time game scenes. Features faceted wooden staves in rich brown tones bound by dual dark iron hoops. Optimized with a lightweight polygon footprint, making it an ideal destructible object, resource container, or ambient clutter asset for stylized fantasy, pirate, or medieval environments.</p>
+        <section class="inventory-section" id="cyberpunk-city" data-category="cyberpunk-city">
+            <div class="section-title-wrapper">
+                <span class="sub-header">• CATEGORY 03</span>
+                <h2 class="main-header">CYBERPUNK CITY</h2>
+                <p class="inventory-section-intro">3D buildings and street props made for a cyberpunk city scene.</p>
             </div>
-            <div class="inventory-media">
-                <img loading="lazy" src="images/Inventory13.webp" alt="LOW-POLY BARREL">
+
+            <div class="inventory-item img-right">
+                <div class="inventory-text">
+                    <h3>SCI-FI SKYSCRAPER</h3>
+                    <p>Modular 3D skyscraper model designed for real-time cyberpunk city scenes. Built with clean geometric forms, metallic vent detailing, and custom corporate branding to quickly assemble dense, futuristic urban horizons.</p>
+                </div>
+                <div class="inventory-media">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20City/sci-fi-skyscraper.webp" alt="SCI-FI SKYSCRAPER">
+                </div>
             </div>
-        </div>
+
+            <div class="inventory-item img-left">
+                <div class="inventory-media">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20City/high-rise-sci-fi-skyscraper.webp" alt="HIGH-RISE SCI-FI SKYSCRAPER">
+                </div>
+                <div class="inventory-text">
+                    <h3>HIGH-RISE SCI-FI SKYSCRAPER</h3>
+                    <p>Stylized 3D skyscraper model with a sleek, futuristic design. Features a vertical composition with multiple levels, each with unique architectural elements and lighting effects to create a sense of depth and scale in cyberpunk cityscapes.</p>
+                </div>
+            </div>
+
+            <div class="inventory-item img-right">
+                <div class="inventory-text">
+                    <h3>CYBERPUNK APARTMENT BUILDING</h3>
+                    <p>High-rise 3D apartment building asset created for a cyberpunk urban environment. Built with modular snapping in mind and detailed with reflective windows, AC props, and urban graffiti decals to add depth and narrative environmental detail to street-level scenes.</p>
+                </div>
+                <div class="inventory-media">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20City/cyberpunk-apartment-building.webp" alt="Cyberpunk Apartment Building">
+                </div>
+            </div>
+
+            <div class="inventory-item img-left">
+                <div class="inventory-media">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20City/sci-fi-alley-dumpster-prop.webp" alt="Sci-Fi Alley Dumpster Prop">
+                </div>
+                <div class="inventory-text">
+                    <h3>SCI-FI ALLEY DUMPSTER PROP</h3>
+                    <p>Low-poly 3D environmental prop modeled for a cyberpunk city class project. Textured with PBR material maps featuring heavy surface corrosion, rusted industrial green paint, grease stains, and subtle edge wear. Optimized for real-time game engines with an efficient polygon count, perfect for populating atmospheric alleyways, backstreets, and futuristic slum environments.</p>
+                </div>
+            </div>
+
+            <div class="inventory-item img-right">
+                <div class="inventory-text">
+                    <h3>ILLUMINATED SIGNBOARD</h3>
+                    <p>Low-poly 3D street advertisement kiosk modeled for a cyberpunk city scene. Features an illuminated, glowing display sign showcasing localized corporate branding paired with metallic teal casing, subtle paint scuffs, and edge wear. Designed as a freestanding street-level prop to provide dynamic point-source lighting and ambient atmosphere along urban sidewalks.</p>
+                </div>
+                <div class="inventory-media">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20City/illuminated-signboard.webp" alt="Illuminated Signboard">
+                </div>
+            </div>
+
+            <div class="inventory-item img-left">
+                <div class="inventory-media">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20City/sci-fi-metallic-bench.webp" alt="SCI-FI METALLIC BENCH">
+                </div>
+                <div class="inventory-text">
+                    <h3>SCI-FI METALLIC BENCH</h3>
+                    <p>Low-poly 3D street bench modeled as an environmental prop for a cyberpunk urban setting. Features heavy dark metallic casing, worn edge textures, sturdy side supports, and a distinct neon blue accent trim inset along the seating frame. Designed for populating sidewalks, public plazas, and transit stations to enhance environmental depth.</p>
+                </div>
+            </div>
+
+            <div class="inventory-item img-right">
+                <div class="inventory-text">
+                    <h3>SCI-FI METALLIC BENCH 2</h3>
+                    <p>A low-poly 3D urban seating asset designed for cyberpunk streetscapes and transit hubs. Constructed with dark wooden/composite slatted backing, a metallic structural frame, and dual neon blue light strips running along the seat edge and footrest bar. Built as a versatile environmental prop to fill out public plazas, walkways, and bus stop shelters.</p>
+                </div>
+                <div class="inventory-media">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20City/sci-fi-metallic-bench-2.webp" alt="SCI-FI METALLIC BENCH 2">
+                </div>
+            </div>
+
+            <div class="inventory-item img-left">
+                <div class="inventory-media">
+                    <img loading="lazy" src="images/Inventory/Cyberpunk%20City/digital-street-sign-props.webp" alt="Digital Street Sign Props">
+                </div>
+                <div class="inventory-text">
+                    <h3>DIGITAL STREET SIGN PROPS</h3>
+                    <p>Futuristic street signage collection designed to guide and restrict flow across high-tech city sectors. Each freestanding sign combines heavy industrial metal posts with glowing digital display faces showing weathered hazard warnings and traffic commands, adding functional world-building detail to sci-fi streetscapes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="inventory-section" id="others" data-category="others">
+            <div class="section-title-wrapper">
+                <span class="sub-header">• CATEGORY 04</span>
+                <h2 class="main-header">OTHERS</h2>
+                <p class="inventory-section-intro">Standalone low-poly props.</p>
+            </div>
+
+            <div class="inventory-item img-right">
+                <div class="inventory-text">
+                    <h3>LOW-POLY CHEST</h3>
+                    <p>A stylized low-poly 3D crate/chest prop designed for real-time game environments. Features clean blocky geometry, matte khaki plating, side handles, and a central dark latching mechanism. Built with an optimized poly count, perfect as an interactive loot container, supply drop, or storage clutter for low-poly action and adventure games.</p>
+                </div>
+                <div class="inventory-media">
+                    <img loading="lazy" src="images/Inventory/Others/low-poly-chest.webp" alt="LOW-POLY CHEST">
+                </div>
+            </div>
+
+            <div class="inventory-item img-left">
+                <div class="inventory-media">
+                    <img loading="lazy" src="images/Inventory/Others/low-poly-barrel.webp" alt="LOW-POLY BARREL">
+                </div>
+                <div class="inventory-text">
+                    <h3>LOW-POLY BARREL</h3>
+                    <p>A stylized low-poly 3D wooden barrel environmental prop modeled for real-time game scenes. Features faceted wooden staves in rich brown tones bound by dual dark iron hoops. Optimized with a lightweight polygon footprint, making it an ideal destructible object, resource container, or ambient clutter asset for stylized fantasy, pirate, or medieval environments.</p>
+                </div>
+            </div>
+        </section>
 
     </div>
 

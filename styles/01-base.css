@@ -256,8 +256,8 @@ body:not(.starfield) #starfield-container {
 }
 
 @keyframes twinkle {
-    0% { opacity: 0.15; filter: drop-shadow(0 0 2px rgba(var(--accent-rgb), 0.2)); }
-    100% { opacity: 0.85; filter: drop-shadow(0 0 8px rgba(var(--accent-rgb), 0.8)); }
+    0% { opacity: 0.1; filter: drop-shadow(0 0 2px rgba(var(--accent-rgb), 0.2)); }
+    100% { opacity: 0.4; filter: drop-shadow(0 0 6px rgba(var(--accent-rgb), 0.5)); }
 }
 
 @keyframes supernovaBurst {

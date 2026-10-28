@@ -4,7 +4,7 @@
         alreadyBooted = sessionStorage.getItem('booted') === 'yes';
         sessionStorage.setItem('booted', 'yes');
     } catch { }
-    if (alreadyBooted) return;
+    if (alreadyBooted || !document.querySelector('.game-gallery')) return;
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const LINES = [

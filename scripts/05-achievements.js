@@ -169,8 +169,9 @@
 
     if (document.querySelector('.not-found')) unlock('lost-signal');
 
-    const gameMatch = location.pathname.match(/game(\d+)(?:\.html)?\/?$/);
-    if (gameMatch && addToList('games', gameMatch[1]).length >= QUEST_COUNT) unlock('explorer');
+    const page = location.pathname.split('/').filter(Boolean).pop()?.replace(/\.html$/, '');
+    const quests = [...document.querySelectorAll('.dropdown-content a')].map((a) => a.getAttribute('href').replace(/\.html$/, ''));
+    if (quests.includes(page) && addToList('quests', page).length >= QUEST_COUNT) unlock('explorer');
 
     const recordTheme = () => {
         const theme = document.body.dataset.theme;

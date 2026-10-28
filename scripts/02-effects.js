@@ -1,5 +1,3 @@
-// 8-bit sound effects, synthesised with Web Audio so there are no sound files to load.
-// Each note is [start frequency, length in seconds, optional end frequency for a slide].
 const SOUNDS = {
     hover: [[1320, 0.025]],
     click: [[660, 0.04], [990, 0.06]],
@@ -34,7 +32,6 @@ function playSound(name) {
     } catch { }
 }
 
-// Runs fn once the first-visit loading screen has gone, so entrance effects aren't hidden behind it.
 function afterBoot(fn) {
     if (document.body.classList.contains('booting')) document.addEventListener('site:boot-done', fn, { once: true });
     else fn();
@@ -121,7 +118,6 @@ function afterBoot(fn) {
     const cursor = document.getElementById('custom-cursor');
 
     if (cursor) {
-        // Touch screens fire a fake mousemove on every tap, so only mice get the custom cursor.
         const finePointer = window.matchMedia('(pointer: fine)');
         let lastTrailTime = 0;
 
@@ -150,7 +146,6 @@ function afterBoot(fn) {
 })();
 
 (() => {
-    // Sounds: a soft tick when hovering things you can click, a blip when clicking them.
     const HOVER_SOUND_ON = '.game-card, .nav-link, .dropdown-content a, .dropdown-content button, .banner-btn, '
         + '.support-btn, .quest-nav-link, .social-icon, .footer-link, .link-row, [role="button"]';
     let lastHover = 0;
@@ -169,7 +164,6 @@ function afterBoot(fn) {
 
     if (REDUCED_MOTION) return;
 
-    // Skill bars fill up like XP bars, and their numbers count up, when the profile scrolls into view.
     const skillsList = document.querySelector('.skills-list');
     if (skillsList) {
         const skills = [...skillsList.querySelectorAll('.skill-item')].map((item) => {
@@ -206,7 +200,6 @@ function afterBoot(fn) {
         observer.observe(skillsList);
     }
 
-    // Sections slide in as they scroll into view. Cards that arrive together come in one after another.
     const revealTargets = document.querySelectorAll('.profile-card, .promo-card, .section-title-wrapper, .game-card, '
         + '.screenshots-section, .inventory-item, .quest-nav-link, .link-row');
     if (revealTargets.length) {
@@ -221,7 +214,6 @@ function afterBoot(fn) {
         afterBoot(() => revealTargets.forEach((el) => observer.observe(el)));
     }
 
-    // Banner titles type themselves out. The untyped part stays in place (invisible) so nothing jumps around.
     const title = document.querySelector('.banner-content h1');
     if (title) {
         const text = title.textContent.trim();
@@ -250,7 +242,6 @@ function afterBoot(fn) {
         });
     }
 
-    // Quest cards tilt slightly toward the mouse.
     if (window.matchMedia('(pointer: fine)').matches) {
         document.querySelectorAll('.game-card').forEach((card) => {
             card.addEventListener('mousemove', (event) => {

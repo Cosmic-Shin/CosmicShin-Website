@@ -178,7 +178,7 @@
 .game-details-description {
     text-align: left;
     color: var(--text-gray);
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.6;
     margin-bottom: 35px;
 }
@@ -237,7 +237,7 @@
 
 .backstory-text {
     color: var(--text-gray);
-    font-size: 13.5px;
+    font-size: 15px;
     line-height: 1.5;
     margin: 0;
 }
@@ -258,7 +258,7 @@
 
 .team-member {
     color: var(--text-white);
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
     letter-spacing: 0.5px;
     text-decoration: none;
@@ -414,7 +414,7 @@
 
 .page-intro {
     color: var(--text-gray);
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
     max-width: 600px;
     margin: 0 auto 35px auto;
@@ -529,7 +529,7 @@
     flex: 1;
 }
 
-.inventory-text h2 {
+.inventory-text h3 {
     color: var(--accent);
     font-size: 24px;
     font-weight: 900;
@@ -540,7 +540,7 @@
 
 .inventory-text p {
     color: var(--text-gray);
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
     margin: 0;
 }
@@ -573,6 +573,112 @@
 
 .inventory-media:hover img {
     transform: scale(1.04);
+}
+
+.inventory-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.inventory-filter-btn {
+    font-family: var(--font-pixel);
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: var(--text-gray);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-dark);
+    border-radius: 4px;
+    padding: 6px 16px;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.inventory-filter-btn:hover {
+    color: var(--text-white);
+    border-color: var(--accent);
+}
+
+.inventory-filter-btn[aria-pressed="true"] {
+    color: var(--on-accent);
+    background-color: var(--accent-button);
+    border-color: var(--accent-button);
+}
+
+.inventory-section {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    scroll-margin-top: 100px;
+}
+
+.inventory-section[hidden] {
+    display: none;
+}
+
+.inventory-section .section-title-wrapper {
+    margin-bottom: -20px;
+}
+
+.inventory-section-intro {
+    color: var(--text-gray);
+    font-size: 15px;
+    margin: 8px 0 0 0;
+}
+
+.icon-group-title {
+    color: var(--accent);
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin: 0 0 -40px 0;
+    text-align: left;
+}
+
+.icon-group-title span {
+    color: var(--text-muted);
+}
+
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 14px;
+}
+
+.icon-tile {
+    margin: 0;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-dark);
+    border-radius: 6px;
+    padding: 10px 10px 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.icon-tile:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 18px rgba(var(--accent-rgb), 0.3);
+}
+
+.icon-tile img {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.icon-tile:hover img {
+    transform: scale(1.06);
+}
+
+.icon-tile figcaption {
+    font-family: var(--font-pixel);
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    color: var(--text-white);
+    text-align: center;
+    margin-top: 6px;
 }
 
 .unity-play-button {
@@ -863,6 +969,12 @@
     }
     .quest-nav-next {
         text-align: left;
+    }
+}
+
+@media (max-width: 900px) {
+    .game-page .promo-card {
+        order: -1;
     }
 }
 

@@ -2,7 +2,6 @@
     const overlay = document.getElementById('page-overlay');
 
     if (overlay) {
-        // The overlay plays a CRT "power on" by itself in CSS. Leaving a page plays "power off" first.
         window.addEventListener('pageshow', (event) => {
             if (event.persisted) overlay.classList.remove('crt-off');
         });
@@ -41,7 +40,7 @@
         }, 2400);
     }
 
-    const galleryImages = [...document.querySelectorAll('.screenshots-grid img, .inventory-media img, img[data-zoom]')];
+    const galleryImages = [...document.querySelectorAll('.screenshots-grid img, .inventory-media img, .icon-grid img, img[data-zoom]')];
     if (galleryImages.length) {
         document.body.insertAdjacentHTML('beforeend', '<div id="lightbox" class="lightbox-overlay"><img id="lightbox-img" src="" alt=""></div>');
     }
@@ -73,15 +72,17 @@
         const counter = hasMany && lightbox.appendChild(document.createElement('div'));
         if (counter) counter.className = 'lightbox-counter';
 
-        const show = (index) => {
-            current = (index + galleryImages.length) % galleryImages.length;
+        const show = (index, step = 1) => {
+            for (let tries = 0; tries < galleryImages.length; tries++, index += step) {
+                current = (index + galleryImages.length) % galleryImages.length;
+                if (galleryImages[current].getClientRects().length) break;
+            }
             const img = galleryImages[current];
             lightboxImg.src = img.currentSrc || img.src;
             lightboxImg.alt = img.alt || 'Expanded screenshot';
             if (counter) counter.textContent = `${current + 1} / ${galleryImages.length}`;
         };
 
-        // Moves the big image between its full-size spot and the thumbnail's spot on screen.
         const zoom = (thumbnail, direction) => {
             const from = thumbnail.getBoundingClientRect();
             const to = lightboxImg.getBoundingClientRect();
@@ -134,7 +135,7 @@
         });
 
         lightbox.addEventListener('click', (event) => {
-            if (event.target === prevButton) show(current - 1);
+            if (event.target === prevButton) show(current - 1, -1);
             else if (event.target === nextButton) show(current + 1);
             else if (event.target !== lightboxImg) close();
         });
@@ -143,7 +144,7 @@
         document.addEventListener('keydown', (event) => {
             if (!isOpen()) return;
             if (event.key === 'Escape') close();
-            if (hasMany && event.key === 'ArrowLeft') show(current - 1);
+            if (hasMany && event.key === 'ArrowLeft') show(current - 1, -1);
             if (hasMany && event.key === 'ArrowRight') show(current + 1);
             trapFocus(lightbox, event);
         });
@@ -155,7 +156,7 @@
         lightbox.addEventListener('touchend', (event) => {
             if (touchStartX === null || !hasMany) return;
             const distance = event.changedTouches[0].clientX - touchStartX;
-            if (Math.abs(distance) > 50) show(current + (distance < 0 ? 1 : -1));
+            if (Math.abs(distance) > 50) { const step = distance < 0 ? 1 : -1; show(current + step, step); }
             touchStartX = null;
         });
     }
@@ -214,7 +215,6 @@
         });
     }
 
-    // Touch screens can't hover, so the first tap on ARCHIVES opens its list and a second tap follows the link.
     const dropdowns = document.querySelectorAll('.dropdown');
     dropdowns.forEach((dropdown) => {
         dropdown.querySelector('.nav-link')?.addEventListener('click', (event) => {
@@ -229,9 +229,31 @@
         });
     });
 
-    document.querySelectorAll('[data-soon]').forEach((el) => {
-        el.addEventListener('click', () => {
-            (document.getElementById(el.dataset.soonTarget) || el).textContent = el.dataset.soon;
+    const filterButtons = document.querySelectorAll('.inventory-filter-btn');
+    const sections = document.querySelectorAll('.inventory-section');
+    filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+            filterButtons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+            sections.forEach((section) => {
+                section.hidden = filter !== 'all' && section.dataset.category !== filter;
+            });
         });
+    });
+
+    const toTop = document.createElement('button');
+    toTop.type = 'button';
+    toTop.id = 'back-to-top';
+    toTop.setAttribute('aria-label', 'Back to top');
+    toTop.title = 'Back to top';
+    toTop.textContent = '▲';
+    document.body.append(toTop);
+
+    const updateToTop = () => toTop.classList.toggle('show', window.scrollY > 600);
+    updateToTop();
+    window.addEventListener('scroll', updateToTop, { passive: true });
+    toTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
+        document.getElementById('main-content')?.focus({ preventScroll: true });
     });
 })();

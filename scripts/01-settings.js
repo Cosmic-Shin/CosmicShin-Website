@@ -8,7 +8,6 @@ const THEME_COLORS = {
     gold: { hue: 45, saturation: 0.85, brightness: 1.01 },
 };
 
-// The site's root folder, worked out from this script's address so image paths also work on the 404 page.
 const SITE_ROOT = new URL('../', document.currentScript.src).href;
 
 const FAVICON_IMAGE = `${SITE_ROOT}images/favicon/favicon.png`;
@@ -153,7 +152,6 @@ function trapFocus(container, event) {
     }
 }
 
-// Parts every page shares that only work with JavaScript, so they live here instead of in each page.
 function addSharedParts() {
     const star = baseAsset('Star');
 
