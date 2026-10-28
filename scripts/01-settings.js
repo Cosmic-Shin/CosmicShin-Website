@@ -256,10 +256,15 @@ addSharedParts();
             showImages();
         });
 
-        const favicon = document.getElementById('site-favicon');
-        if (favicon) {
+        const favicons = document.querySelectorAll('link[rel~="icon"]');
+        if (favicons.length) {
             recolorImage(FAVICON_IMAGE, theme, true).then((url) => {
-                if (currentTheme() === theme) favicon.href = url;
+                if (currentTheme() !== theme) return;
+                favicons.forEach((link) => {
+                    link.href = url;
+                    link.type = 'image/png';
+                    link.removeAttribute('sizes');
+                });
             });
         }
 
